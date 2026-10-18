@@ -1,0 +1,34 @@
+/* Light mode: restore legible SVG icons, arrows and card states in finance project diagrams.
+   Dark mode remains unchanged. */
+html[data-theme="light"] #work .soi-visual {
+  background: linear-gradient(128deg, #d5ece9 0%, #e4edf7 100%);
+}
+html[data-theme="light"] #work .soi-step {
+  background: rgba(255, 255, 255, .84);
+  border-color: #62a69e;
+}
+html[data-theme="light"] #work .soi-step-core {
+  background: #cdeae3;
+  border-color: #29897d;
+}
+html[data-theme="light"] #work .soi-step-icon {
+  color: #12655c;
+  background: #c8e7df;
+}
+html[data-theme="light"] #work .soi-step-core .soi-step-icon {
+  color: #094e49;
+  background: #a7d7cc;
+}
+html[data-theme="light"] #work .soi-flow-arrow {
+  color: #176e65;
+  font-weight: 700;
+}
+html[data-theme="light"] #work .soi-step strong {
+  color: #153540;
+}
+html[data-theme="light"] #work .soi-step small {
+  color: #395b68;
+}
+html[data-theme="light"] #work .query-signal .icon {
+  color: #176e62;
+}

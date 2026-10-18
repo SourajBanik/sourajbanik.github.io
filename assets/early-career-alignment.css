@@ -1,0 +1,14 @@
+/* Early-career roles now follow the same timeline hierarchy as recent roles. */
+.early-career-content { padding-top: 24px; }
+.early-career-content > .timeline-item { margin-bottom: 29px; padding-bottom: 32px; border-top: 0; }
+.early-career-content > .timeline-item:last-child { margin-bottom: 0; padding-bottom: 4px; border-bottom: 0; }
+.early-career-content .timeline-top > .date { font-size: 12px; color: #bfcfe0; letter-spacing: .055em; }
+.early-career-content .timeline-item > h4 { font-size: 15px; color: #d6e3ef; font-weight: 400; }
+.early-career-content .timeline-item > p { font-size: 15px; color: #c4d4e5; line-height: 1.75; margin-top: 13px; }
+:root[data-theme="light"] .early-career-content .timeline-top > .date { color: #39556c; }
+:root[data-theme="light"] .early-career-content .timeline-item > h4 { color: #305069; }
+:root[data-theme="light"] .early-career-content .timeline-item > p { color: #354f66; }
+@media (max-width: 480px) {
+  .early-career-content .timeline-top > .date { font-size: 11px; }
+  .early-career-content .timeline-item > p { font-size: 14px; }
+}

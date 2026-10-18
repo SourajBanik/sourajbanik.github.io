@@ -1,0 +1,251 @@
+/* Photo-led About section: original full-frame imagery (no zoom/crop). */
+.site-header .brand-mark.brand-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  flex: 0 0 48px;
+  box-sizing: border-box;
+  padding: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(156, 242, 215, .76);
+  border-radius: 50%;
+  background: #78c2e6;
+  box-shadow: 0 0 0 3px rgba(156, 242, 215, .075), 0 8px 25px rgba(0, 0, 0, .20);
+  transition: border-color .25s, box-shadow .25s;
+}
+.site-header .brand-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 50%;
+  background: #78c2e6;
+}
+.site-header .brand:hover .brand-avatar {
+  border-color: #d0ffee;
+  box-shadow: 0 0 0 4px rgba(156, 242, 215, .12), 0 8px 25px rgba(0, 0, 0, .20);
+}
+:root[data-theme="light"] .site-header .brand-avatar {
+  border-color: #248c78;
+  background: #78c2e6;
+  box-shadow: 0 0 0 3px rgba(26, 116, 98, .08), 0 6px 20px rgba(18, 53, 73, .12);
+}
+/* The story and the full-size portrait get equal visual weight. */
+.about-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.26fr) minmax(300px, .88fr);
+  gap: 42px clamp(32px, 5vw, 78px);
+  padding: clamp(34px, 4vw, 56px);
+  align-items: center;
+}
+.about-copy {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  max-width: 640px;
+}
+.about-copy h2 { max-width: 650px; margin-top: 21px; font-size: clamp(31px, 2.55vw, 39px); line-height: 1.24; }
+.about-copy > p { max-width: 59ch; font-size: 15px; line-height: 1.85; margin-top: 22px; }
+.about-story-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 32px;
+  padding: 11px 15px;
+  border: 1px solid rgba(156, 242, 215, .25);
+  background: rgba(156, 242, 215, .055);
+  border-radius: 7px;
+  color: #bde5db;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+.about-portrait {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  width: min(100%, 397px);
+  max-width: 397px;
+  min-width: 0;
+  margin: 0;
+}
+.about-portrait-frame {
+  display: block;
+  position: relative;
+  padding: 5px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #8bdbcb, #b4aaef 60%, #96e3d1);
+  box-shadow: 0 22px 53px rgba(0, 0, 0, .23), 0 0 0 1px rgba(156, 242, 215, .15);
+  transition: box-shadow .3s ease, transform .32s ease;
+}
+.about-portrait-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;   /* Show the complete original photo, without cropping. */
+  object-position: center;
+  border-radius: 17px;
+  background: #82c5e7;
+}
+.about-person {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 20px;
+  line-height: 1.5;
+  text-align: left;
+}
+.about-person::before { content: none; }
+.about-person-name {
+  color: var(--text);
+  font-family: var(--font);
+  font-size: clamp(23px, 2.15vw, 30px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -.04em;
+  text-transform: none;
+}
+.about-person-detail {
+  color: #b5dcd5;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .005em;
+  text-transform: none;
+}
+.about-person-detail > span { padding-inline: 3px; color: var(--mint); }
+.about-person-location {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #a9bbcf;
+  letter-spacing: .03em;
+  text-transform: none;
+}
+/* Qualifications are a deliberate full-width lower tier, not a third cramped column. */
+.education-panel {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  border: 0;
+  border-top: 1px solid #32424d;
+  padding: 29px 0 0;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.4fr);
+  column-gap: 25px;
+  align-items: start;
+}
+.education-panel > .micro-label {
+  grid-column: 1 / -1;
+  margin-bottom: 15px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .065em;
+}
+.education-item {
+  margin-top: 0;
+  min-width: 0;
+  gap: 13px;
+}
+.education-item h3 { font-size: 17px; }
+.education-item p { font-size: 13px; }
+.education-item div > span:last-child { font-size: 11px; }
+.learning-list {
+  margin: 0;
+  padding: 0 0 0 25px;
+  min-width: 0;
+  border-top: 0;
+  border-left: 1px solid #32424d;
+}
+.learning-list p { font-size: 12px; line-height: 1.65; }
+.learning-list small { font-size: 10px; }
+:root[data-theme="light"] .about-story-line {
+  color: #245c50;
+  border-color: #badbce;
+  background: rgba(73, 163, 134, .09);
+}
+:root[data-theme="light"] .about-portrait-frame {
+  background: linear-gradient(135deg, #48a995, #aaa6da 60%, #92d7c5);
+  box-shadow: 0 18px 40px rgba(38, 71, 96, .14), 0 0 0 1px rgba(38, 106, 101, .12);
+}
+:root[data-theme="light"] .about-person-detail { color: #256e68; }
+:root[data-theme="light"] .about-person-detail > span { color: #347d70; }
+:root[data-theme="light"] .about-person-location { color: #4c6682; }
+:root[data-theme="light"] .education-panel,
+:root[data-theme="light"] .learning-list { border-color: #c6d7df; }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .about-portrait:hover .about-portrait-frame {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 60px rgba(0, 0, 0, .27), 0 0 0 1px rgba(156, 242, 215, .25);
+  }
+}
+@media (max-width: 1080px) {
+  .about-panel { grid-template-columns: minmax(0, 1.12fr) minmax(250px, .88fr); gap: 32px; padding: 36px; }
+  .about-portrait { width: 100%; max-width: 354px; }
+  .about-copy h2 { font-size: 31px; }
+  .education-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+  .learning-list { grid-column: 1 / -1; border-left: 0; border-top: 1px solid #32424d; padding: 20px 0 0; }
+  :root[data-theme="light"] .learning-list { border-top-color: #c6d7df; }
+}
+@media (max-width: 767px) {
+  .site-header .brand-mark.brand-avatar { width: 42px; height: 42px; min-width: 42px; flex-basis: 42px; padding: 2px; }
+  .about-panel { grid-template-columns: minmax(0,1fr); padding: 29px; gap: 33px; }
+  .about-copy { grid-column: 1; grid-row: 1; max-width: none; }
+  .about-copy h2 { font-size: 30px; }
+  .about-copy > p { font-size: 14px; line-height: 1.8; }
+  .about-story-line { margin-top: 21px; font-size: 11px; }
+  .about-portrait { grid-column: 1; grid-row: 2; justify-self: center; width: min(100%, 375px); max-width: 375px; }
+  .about-person { align-items: center; text-align: center; }
+  .about-person-name { font-size: 25px; }
+  .about-person-detail { font-size: 11px; }
+  .education-panel { grid-column: 1; grid-row: 3; display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; padding-top: 24px; }
+  .education-panel > .micro-label { margin-bottom: 0; }
+  .learning-list { grid-column: 1; border-top: 1px solid #32424d; padding-top: 22px; }
+}
+@media (max-width: 400px) {
+  .about-panel { padding: 21px; gap: 26px; }
+  .about-copy h2 { font-size: 27px; }
+  .about-portrait { width: 100%; }
+  .about-person-detail { font-size: 10px; }
+  .site-header .brand { gap: 9px; }
+  .site-header .brand-name { letter-spacing: .045em; }
+  .site-header .brand-name > span { letter-spacing: .01em; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .site-header .brand-avatar, .about-portrait-frame { transition: none !important; transform: none !important; }
+}
+@media print {
+  .about-panel { display: grid !important; grid-template-columns: 1.2fr 1fr !important; gap: 17px !important; }
+  .about-copy { grid-column: 1; grid-row: 1; }
+  .about-portrait { grid-column: 2; grid-row: 1; }
+  .education-panel { grid-column: 1 / -1; grid-row: 2; }
+  .about-person-name { color: #253b40 !important; }
+}
+
+/* Consistent degree-title baseline: display the study status beside MBA,
+   rather than adding an extra line before the first degree title. */
+.education-item > .education-details { min-width: 0; flex: 1; }
+.education-item .education-degree-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+  min-height: 29px;
+}
+.education-item .education-degree-row h3 { margin: 0; line-height: 1.35; }
+.education-item .education-degree-row .pursuing-tag {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 9px;
+  line-height: 1;
+  padding: 5px 7px;
+  margin: 0;
+}

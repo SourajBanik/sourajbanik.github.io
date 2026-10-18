@@ -1,0 +1,45 @@
+
+/* Skill Stack refinement: remove redundant counters and align category labels. */
+.expertise-card .expertise-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.expertise-card .expertise-card-top .expertise-icon { flex-shrink: 0; }
+.expertise-card .expertise-card-top .expertise-number {
+  position: static;
+  margin-left: auto;
+  max-width: 65%;
+  color: var(--metadata);
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-align: right;
+}
+.expertise-section .direction-strip > div { flex: 1; min-width: 0; }
+.expertise-section .direction-strip { justify-content: flex-start; }
+.expertise-section .section-heading > p { max-width: 395px; }
+@media (max-width: 550px) {
+  .expertise-card .expertise-card-top { gap: 10px; }
+  .expertise-card .expertise-card-top .expertise-number { font-size: 9px; letter-spacing: .055em; }
+}
+
+/* A single unobtrusive note, matching the Selected Works footer. */
+.expertise-section .direction-note {
+  margin-top: 30px;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #bbcadb;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+  letter-spacing: normal;
+}
+:root[data-theme="light"] .expertise-section .direction-note { color: #445c75; }
+@media (max-width: 550px) {
+  .expertise-section .direction-note { font-size: 12px; margin-top: 22px; }
+}

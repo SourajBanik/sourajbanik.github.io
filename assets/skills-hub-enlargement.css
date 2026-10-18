@@ -1,0 +1,93 @@
+/* Enlarged skills nexus: approximately 25% larger hub, unchanged skill tiles.
+   Extra vertical space lets each connector approach the hub naturally. */
+.skills-matrix .skills-nexus {
+  height: 150px;
+  min-height: 150px;
+}
+.skills-matrix .skills-core {
+  width: 325px;
+  height: 130px;
+  max-width: 96%;
+  background: radial-gradient(ellipse at center, rgba(126, 127, 208, .18), rgba(95, 106, 187, .07) 46%, transparent 76%);
+  isolation: isolate;
+}
+/* A soft aura follows the center without lowering text contrast. */
+.skills-matrix .skills-core::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 3px 9px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(119, 122, 211, .16) 0%, rgba(111, 182, 203, .065) 40%, transparent 73%);
+  filter: blur(9px);
+  pointer-events: none;
+}
+.skills-matrix .skills-core .core-ring.ring-one {
+  inset: 2px 43px;
+  border-color: rgba(153,160,236,.23);
+}
+.skills-matrix .skills-core .core-ring.ring-two {
+  inset: 20px 27px;
+  border-color: rgba(135,225,204,.21);
+}
+.skills-matrix .skills-core .core-caption {
+  width: 294px;
+  min-width: 0;
+  max-width: 96%;
+  min-height: 80px;
+  padding: 17px 18px;
+  border-radius: 17px;
+  position: relative;
+  z-index: 2;
+}
+.skills-matrix .skills-core .core-caption strong {
+  font-size: 16.6px;
+  line-height: 1.36;
+  letter-spacing: -.26px;
+}
+:root[data-theme='light'] .skills-matrix .skills-core {
+  background: radial-gradient(ellipse at center, rgba(113, 137, 210, .12), rgba(116, 163, 213, .04) 49%, transparent 75%);
+}
+:root[data-theme='light'] .skills-matrix .skills-core::before {
+  background: radial-gradient(ellipse at center, rgba(113, 137, 210, .12), rgba(125, 184, 184, .04) 48%, transparent 75%);
+}
+/* Slightly tighter proportions inside the narrower desktop / tablet split layout. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .skills-matrix .skills-nexus { height: 142px; min-height: 142px; }
+  .skills-matrix .skills-core { width: 300px; height: 125px; }
+  .skills-matrix .skills-core .core-caption { width: 270px; min-height: 75px; padding: 15px; }
+  .skills-matrix .skills-core .core-caption strong { font-size: 15.2px; }
+}
+/* Narrow two-column layouts already stack the skill tiles. Make the hub distinct
+   while retaining the fine vertical connector used at this breakpoint. */
+@media (min-width: 768px) and (max-width: 930px) {
+  .skills-matrix .skills-nexus { height: 118px; min-height: 118px; }
+  .skills-matrix .skills-core { width: min(300px, 100%); height: 113px; }
+  .skills-matrix .skills-core .core-caption { width: min(272px, 96%); min-height: 70px; }
+}
+@media (min-width: 521px) and (max-width: 767px) {
+  .skills-matrix .skills-nexus { height: 140px; min-height: 140px; }
+  .skills-matrix .skills-core { width: 315px; height: 124px; }
+  .skills-matrix .skills-core .core-caption { width: 284px; min-height: 77px; }
+  .skills-matrix .skills-core .core-caption strong { font-size: 16px; }
+}
+@media (max-width: 520px) {
+  .skills-matrix .skills-nexus { height: 114px; min-height: 114px; }
+  .skills-matrix .skills-core { width: min(276px, 100%); height: 108px; max-width: 100%; }
+  .skills-matrix .skills-core .core-caption {
+    width: min(258px, 95%);
+    min-height: 70px;
+    padding: 13px 12px;
+    border-radius: 14px;
+  }
+  .skills-matrix .skills-core .core-caption strong { font-size: 15.3px; line-height: 1.35; }
+  .skills-matrix .skills-core .core-ring.ring-one { inset: 1px 29px; }
+  .skills-matrix .skills-core .core-ring.ring-two { inset: 16px 17px; }
+  /* Match the signal's travel to the extra vertical separation. */
+  .skills-matrix .skills-nexus::after { height: 13px; }
+}
+@media (max-width: 374px) {
+  .skills-matrix .skills-core { width: min(259px, 100%); }
+  .skills-matrix .skills-core .core-caption { width: min(244px, 96%); min-height: 68px; }
+  .skills-matrix .skills-core .core-caption strong { font-size: 14.4px; }
+}

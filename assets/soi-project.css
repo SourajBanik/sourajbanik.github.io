@@ -1,0 +1,18 @@
+
+/* Statement of Investments web-application project illustration */
+#work .soi-visual {background:linear-gradient(133deg,rgba(18,42,51,.90),rgba(14,23,39,.98));}
+#work .soi-flow {display:flex;align-items:stretch;justify-content:center;gap:4px;padding:13px 12px 0;min-width:0;height:116px;}
+#work .soi-step {flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:8px 3px;border:1px solid rgba(150,220,209,.29);border-radius:10px;background:rgba(116,215,197,.07);text-align:center;}
+#work .soi-step-core {border-color:rgba(148,232,209,.68);background:rgba(95,204,190,.16);}
+#work .soi-step-icon {display:grid;place-items:center;color:#9defd9;background:rgba(104,205,188,.12);border-radius:7px;width:27px;height:27px;}
+#work .soi-step-icon .icon {width:15px;height:15px;}
+#work .soi-step strong {font-size:10px;line-height:1.17;color:#effffa;overflow-wrap:anywhere;}
+#work .soi-step small {font-size:9px;line-height:1.2;color:#b9d3d0;}
+#work .soi-flow-arrow {display:flex;align-items:center;justify-content:center;flex:0 0 9px;font-size:14px;color:#7eebd2;}
+#work .soi-signal {font-size:10px;line-height:1.35;text-align:center;color:#9cecd7;margin:12px 12px 0;}
+@media(max-width:390px){#work .soi-flow{padding-inline:7px;gap:2px}#work .soi-step strong{font-size:9px}#work .soi-step small{font-size:8px}}
+html[data-theme="light"] #work .soi-visual, [data-theme="light"] #work .soi-visual {background:linear-gradient(130deg,#d4f2ee,#e5effa)}
+html[data-theme="light"] #work .soi-step, [data-theme="light"] #work .soi-step {background:rgba(255,255,255,.5);border-color:#73b9b3}
+html[data-theme="light"] #work .soi-step strong, [data-theme="light"] #work .soi-step strong{color:#14323b}
+html[data-theme="light"] #work .soi-step small, [data-theme="light"] #work .soi-step small{color:#3b606b}
+html[data-theme="light"] #work .soi-signal, [data-theme="light"] #work .soi-signal{color:#246a60}

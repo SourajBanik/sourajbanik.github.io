@@ -1,0 +1,14 @@
+/* Central skills hub: complementary, accessible colors in both themes. */
+.skills-matrix .skills-core .core-caption .core-text-finance,
+.skills-matrix .skills-core .core-caption .core-text-digital {
+  display: block;
+  transition: color .22s ease;
+}
+.skills-matrix .skills-core .core-caption .core-text-finance { color: #9df0d7; }
+.skills-matrix .skills-core .core-caption .core-text-digital { color: #b9c8ff; }
+:root[data-theme="light"] .skills-matrix .skills-core .core-caption .core-text-finance { color: #0d6c62; }
+:root[data-theme="light"] .skills-matrix .skills-core .core-caption .core-text-digital { color: #4659a1; }
+@media (prefers-reduced-motion: reduce) {
+  .skills-matrix .skills-core .core-caption .core-text-finance,
+  .skills-matrix .skills-core .core-caption .core-text-digital { transition: none; }
+}

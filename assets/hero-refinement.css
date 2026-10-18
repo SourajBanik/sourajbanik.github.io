@@ -1,0 +1,67 @@
+/* Hero refinement: remove editorial micro-copy and rebalance the finance illustration.
+   The header retains the site-wide Finance Transformation | Automation | AI tagline. */
+.hero-layout {
+  align-items: center;
+}
+.hero-copy {
+  padding-bottom: 0;
+}
+.hero-visual {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.lab-card {
+  min-height: 0;
+  border-radius: 16px;
+}
+.lab-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(148, 238, 209, .42), transparent);
+}
+.lab-content {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.intelligence-core {
+  height: 186px;
+  width: 216px;
+}
+.lab-branches {
+  gap: 14px;
+}
+@media (max-width: 767px) {
+  .lab-content {
+    padding-top: 25px;
+    padding-bottom: 26px;
+  }
+  .intelligence-core {
+    height: 166px;
+    width: 204px;
+    max-width: 78%;
+  }
+}
+@media (max-width: 374px) {
+  .lab-content {
+    padding: 22px 15px 24px;
+  }
+  .intelligence-core {
+    height: 160px;
+  }
+}
+
+/* Focused reporting message without the numbered foundation label. */
+.stage-source > div { min-width: 0; }
+.stage-source strong { margin-top: 0; font-size: 12px; font-weight: 650; line-height: 1.35; }
+.stage-source small { margin-top: 4px; font-size: 8px; line-height: 1.4; }
+.stage-source .stage-icon, .stage-source .stage-indicator { flex-shrink: 0; }
+@media (max-width: 374px) {
+  .stage-source strong { font-size: 10px; }
+  .stage-source small { font-size: 7px; }
+}

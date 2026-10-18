@@ -1,0 +1,10 @@
+
+/* Selected Works preview refinement: captions removed; illustrations rebalanced. */
+#work .query-pipeline { margin-top: 16px; }
+#work .chat-illustration { margin-top: 16px; }
+#work .dashboard-illustration { margin-top: 15px; }
+#work .query-signal { margin-top: 9px; }
+@media (max-width: 420px) {
+  #work .query-pipeline { margin-top: 15px; }
+  #work .chat-illustration { margin-top: 15px; }
+}

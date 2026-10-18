@@ -1,0 +1,169 @@
+/* Minimal, precisely-traced perimeter highlights. One continuous circuit per card.
+   SVG rect pathLength=100 makes the stroke animation cover the whole rounded
+   perimeter, including the corners, at constant speed. */
+/* One calm, shared loop across three visual animation families:
+   1. card border orbit, 2. connector signals, 3. center ring rotation.
+   Connector endpoint breathing and the mobile signal match the same cadence.
+   The short, one-off entrance transitions stay independent. */
+.skills-matrix { --skills-motion-cycle: 12s; }
+.skill-tile::before,
+.skill-tile::after { display: none !important; }
+.skill-perimeter {
+  position: absolute;
+  z-index: 3;
+  /* The containing block is the tile's padding box, 1px inside its border.
+     Expand out to the tile edge before drawing the path on the border centerline. */
+  inset: -1px;
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  max-width: none; /* Override global img, svg { max-width:100% }. */
+  max-height: none;
+  pointer-events: none;
+  overflow: visible;
+}
+.skill-perimeter rect {
+  /* The outline follows the CENTER of the visible 1px CSS border. */
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  rx: calc(var(--tile-outline-radius, 14px) - .5px);
+  fill: none;
+  stroke: var(--tile-accent);
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 5 95;
+  stroke-dashoffset: 0;
+}
+/* At tablet widths the cards use an 11px border radius; the animated
+   path must follow the smaller arc instead of cutting inside the corner. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .skill-tile { --tile-outline-radius: 11px; }
+}
+.skill-perimeter-glow {
+  stroke-width: 3px;
+  opacity: .14;
+  filter: blur(2px);
+}
+.skill-perimeter-line {
+  stroke-width: 1.35px;
+  opacity: .76;
+  filter: drop-shadow(0 0 1px var(--tile-accent));
+}
+/* Remove the center symbol and align the two lines as a single title. */
+.skills-core .core-caption {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  width: 235px;
+  min-width: 0;
+  padding: 13px 18px;
+}
+.skills-core .core-caption strong {
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 1.38;
+  letter-spacing: -.19px;
+}
+@media (max-width: 520px) {
+  .skills-core .core-caption { width: 224px; min-width: 0; }
+}
+@media (max-width: 374px) {
+  .skills-core .core-caption { width: min(215px, 95%); padding-inline: 10px; }
+  .skills-core .core-caption strong { font-size: 13px; }
+}
+:root[data-theme="light"] .skill-perimeter-glow { opacity: .09; }
+:root[data-theme="light"] .skill-perimeter-line { opacity: .68; }
+@media (prefers-reduced-motion: no-preference) {
+  .skill-perimeter rect { animation: skill-border-orbit var(--skills-motion-cycle) linear infinite; }
+  .skill-tile-transform .skill-perimeter rect { animation-delay: calc(var(--skills-motion-cycle) * -0.25); }
+  .skill-tile-automation .skill-perimeter rect { animation-delay: calc(var(--skills-motion-cycle) * -0.5); }
+  .skill-tile-ai .skill-perimeter rect { animation-delay: calc(var(--skills-motion-cycle) * -0.75); }
+  @keyframes skill-border-orbit {
+    to { stroke-dashoffset: -100; }
+  }
+  /* Synchronize looping speeds throughout the skills diagram.  Phases differ,
+     but each full cycle takes exactly 12 seconds and travels linearly. */
+  .skills-matrix .skills-network .skills-flow,
+  .skills-matrix .skills-network .skills-node,
+  .skills-matrix .skills-core .core-ring.ring-one,
+  .skills-matrix .skills-core .core-ring.ring-two,
+  .skills-matrix .skills-nexus::after {
+    animation-duration: var(--skills-motion-cycle) !important;
+    animation-timing-function: linear;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* A complete static border remains on each tile; no moving partial outline. */
+  .skill-perimeter { display: none !important; }
+  .skill-tile { border-color: color-mix(in srgb, var(--tile-accent) 38%, transparent); }
+}
+
+
+/* PERCEPTUAL SPEED MATCH / FINE SIGNALS
+   A shorter connector must finish its circuit sooner to travel at the same
+   apparent px/sec as the much longer card outline. We measure actual geometry
+   in skills-motion-calibration.js, including when the layout changes width.
+   The border highlight and connector packet share stroke weight and opacity. */
+.skills-matrix {
+  --skills-highlight-weight: 1.35px;
+  --skills-highlight-opacity: .62;
+}
+:root[data-theme="light"] .skills-matrix { --skills-highlight-opacity: .70; }
+.skills-matrix .skill-perimeter-glow { display: none; }
+.skills-matrix .skill-perimeter-line,
+.skills-matrix .skills-network .skills-flow {
+  stroke-width: var(--skills-highlight-weight);
+  opacity: var(--skills-highlight-opacity);
+  stroke-linecap: round;
+  /* Faint, matching single-pixel halos rather than wide bloom. */
+  filter: none;
+}
+.skills-matrix .skill-perimeter-line { stroke-dasharray: 1.8 98.2; }
+.skills-matrix .skills-network .skills-flow { stroke-dasharray: 9 91; }
+:root[data-theme="light"] .skills-matrix .skill-perimeter-line,
+:root[data-theme="light"] .skills-matrix .skills-network .skills-flow {
+  opacity: var(--skills-highlight-opacity);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skills-matrix .skills-network .skills-flow {
+    animation-duration: var(--skills-connector-cycle, 2.4s) !important;
+    animation-timing-function: linear !important;
+  }
+  .skills-matrix .skills-core .core-ring.ring-one {
+    animation-duration: var(--skills-ring-one-cycle, 7.5s) !important;
+    animation-timing-function: linear !important;
+  }
+  .skills-matrix .skills-core .core-ring.ring-two {
+    animation-duration: var(--skills-ring-two-cycle, 7.5s) !important;
+    animation-timing-function: linear !important;
+  }
+  /* Mobile uses a true travel speed rather than a 12-second crawl. */
+  .skills-matrix .skills-nexus::after {
+    animation-duration: var(--skills-mobile-cycle, 1.5s) !important;
+    animation-timing-function: linear !important;
+    width: var(--skills-highlight-weight);
+    left: calc(50% - .675px);
+    height: 12px;
+    box-shadow: none;
+  }
+  @keyframes skills-mobile-signal {
+    0%   { transform: translateY(0); opacity: 0; }
+    20%  { opacity: var(--skills-highlight-opacity); }
+    80%  { opacity: var(--skills-highlight-opacity); }
+    100% { transform: translateY(75px); opacity: 0; }
+  }
+}
+
+/* Requested revision: restore the earlier border styling and remove only
+   the continuous traveling highlights on the four skill cards.
+   The hidden SVG remains for layout measurements used to time the existing
+   connector signals and center-ring animation. All other styles are intact. */
+.skills-matrix .skill-tile .skill-perimeter {
+  visibility: hidden !important;
+}
+.skills-matrix .skill-tile .skill-perimeter rect {
+  animation: none !important;
+}
